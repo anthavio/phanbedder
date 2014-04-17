@@ -24,23 +24,6 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class PhanbedderTest {
 
 	@Test
-	public void testGhostDriver() {
-
-		File phantomjs = Phanbedder.unpack();
-		DesiredCapabilities dcaps = new DesiredCapabilities();
-		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
-		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
-
-		driver.get("https://www.google.com");
-		WebElement query = driver.findElement(By.name("q"));
-		query.sendKeys("Phanbedder");
-		query.submit();
-
-		Assertions.assertThat(driver.getTitle()).contains("Phanbedder - Google Search");
-		driver.close();
-	}
-
-	@Test
 	public void testJavaIoTmpDirectory() throws IOException {
 		File binary = Phanbedder.unpack();
 		assertProcessExecution(binary);
@@ -58,6 +41,23 @@ public class PhanbedderTest {
 		String javaUserDir = System.getProperty("user.dir");
 		Assertions.assertThat(new File(binary).getParentFile()).isEqualTo(
 				new File(javaUserDir, "target/phanbedder-test/unpack"));
+	}
+
+	@Test
+	public void testSeleniumGhostDriver() {
+
+		File phantomjs = Phanbedder.unpack();
+		DesiredCapabilities dcaps = new DesiredCapabilities();
+		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
+		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
+
+		driver.get("https://www.google.com");
+		WebElement query = driver.findElement(By.name("q"));
+		query.sendKeys("Phanbedder");
+		query.submit();
+
+		Assertions.assertThat(driver.getTitle()).contains("Phanbedder - Google Search");
+		driver.close();
 	}
 
 	private void assertProcessExecution(File binary) throws IOException {
