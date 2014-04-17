@@ -37,6 +37,7 @@ public class PhanbedderTest {
 		query.submit();
 
 		Assertions.assertThat(driver.getTitle()).contains("Phanbedder - Google Search");
+		driver.close();
 	}
 
 	@Test
