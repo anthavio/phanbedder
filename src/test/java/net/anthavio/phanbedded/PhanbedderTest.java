@@ -10,6 +10,11 @@ import net.anthavio.phanbedder.Phanbedder;
 
 import org.fest.assertions.api.Assertions;
 import org.junit.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 /**
  * 
@@ -17,6 +22,22 @@ import org.junit.Test;
  *
  */
 public class PhanbedderTest {
+
+	@Test
+	public void testGhostDriver() {
+
+		File phantomjs = Phanbedder.unpack();
+		DesiredCapabilities dcaps = new DesiredCapabilities();
+		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
+		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
+
+		driver.get("https://www.google.com");
+		WebElement query = driver.findElement(By.name("q"));
+		query.sendKeys("Phanbedder");
+		query.submit();
+
+		Assertions.assertThat(driver.getTitle()).contains("Phanbedder - Google Search");
+	}
 
 	@Test
 	public void testJavaIoTmpDirectory() throws IOException {
