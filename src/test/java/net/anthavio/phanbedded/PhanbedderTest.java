@@ -67,7 +67,11 @@ public class PhanbedderTest {
 		Process process = new ProcessBuilder(binary.getAbsolutePath(), "--version").start();
 		String sysout = capture(process.getInputStream());
 		String syserr = capture(process.getErrorStream());
-
+		try {
+			process.waitFor();
+		} catch (InterruptedException ix) {
+			System.out.println("Interrupted process.waitFor()");
+		}
 		Assertions.assertThat(process.exitValue()).isEqualTo(0);
 		Assertions.assertThat(syserr).isEmpty();
 		Assertions.assertThat(sysout).isEqualTo(Phanbedder.PHANTOMJS_VERSION); //phantomjs binary version check!

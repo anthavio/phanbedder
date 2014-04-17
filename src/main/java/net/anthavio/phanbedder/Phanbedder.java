@@ -69,12 +69,6 @@ public class Phanbedder {
 
 		return file;
 
-		/*
-		if (chmodx) {
-			String cmd = "chmod +x " + path;
-			Runtime.getRuntime().exec(cmd);
-		}
-		*/
 	}
 
 	private static void unpack(String resource, File target) {
@@ -96,8 +90,8 @@ public class Phanbedder {
 			}
 			output.flush();
 
-		} catch (Exception e) {
-			throw new IllegalStateException("Failed to unpack resource: " + resource + " into: " + target);
+		} catch (Exception x) {
+			throw new IllegalStateException("Failed to unpack resource: " + resource + " into: " + target, x);
 		} finally {
 			if (output != null) {
 				try {
