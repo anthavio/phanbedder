@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<parent>
+		<groupId>net.anthavio.maven</groupId>
+		<artifactId>anthavio-super-pom</artifactId>
+		<version>1</version>
+	</parent>
+	
+	<groupId>net.anthavio</groupId>
+	<artifactId>phanbedder</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	
+	<name>PhantomJS Embedder</name>
+	
+	<inceptionYear>2014</inceptionYear>
+	<description>PhantomJS Windows/Mac OS X/Linux native binary embedder</description>
+
+	<url>http://anthavio.github.com/phanbedder</url>
+	
+	<scm>
+		<url>https://github.com/anthavio/phanbedder</url>
+		<connection>scm:git:git://github.com/anthavio/phanbedder.git</connection>
+		<developerConnection>scm:git:git@github.com:anthavio/phanbedder.git</developerConnection>
+	</scm>
+	
+	<properties>
+		<phantomjs.version>1.9.7</phantomjs.version>
+	</properties>
+
+	<developers>
+		
+		<developer>
+			<id>anthavio</id>
+			<name>Martin Vaněk</name>
+			<email>anthavio@post.cz</email>
+			<roles>
+				<role>Java Developer</role>
+			</roles>
+		</developer>
+
+	</developers>
+
+	<dependencies>
+
+		<!-- test -->
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.5</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.1.1</version>
+			<scope>test</scope>
+		</dependency>
+				
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.8.5</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.easytesting</groupId>
+			<artifactId>fest-assert-core</artifactId>
+			<version>2.0M10</version>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+
+		<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<configuration>
+						<classifier>phantomjs-${phantomjs.version}</classifier>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							</manifest>
+							<manifestEntries>
+								<PhantomJs-Version>${phantomjs.version}</PhantomJs-Version>
+								
+								<!-- buildmetadata-maven-plugin -->
+								<Built-Host>${build.host.name}</Built-Host>
+								<Built-OS>${build.os.name} / ${build.os.arch} / ${build.os.version}</Built-OS>
+								<Built-By>${build.user}</Built-By>
+								<Java-Vendor>${build.java.vendor}</Java-Vendor>
+								<Java-Version>${build.java.runtime.version}</Java-Version>
+								<Java-Options>${build.maven.execution.java.opts}</Java-Options>
+								<Maven-Version>${build.maven.version}</Maven-Version>
+								<Maven-Options>${build.maven.execution.opts}</Maven-Options>
+
+								<Build-SCM-Revision-Number>${build.scmRevision.id}</Build-SCM-Revision-Number>
+								<Build-SCM-Revision-Date>${build.scmRevision.date}</Build-SCM-Revision-Date>
+								
+								<Build-Timestamp>${build.timestamp.millis}</Build-Timestamp>
+								<Build-Date>${build.date}</Build-Date>
+								<Build-Full-Version>${build.version.full}</Build-Full-Version>
+								
+							</manifestEntries>
+						</archive>
+					</configuration>
+				</plugin>			
+		</plugins>
+	</build>
+
+</project>
