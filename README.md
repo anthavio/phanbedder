@@ -1,7 +1,7 @@
 Phanbedder
 ==========
 
-[![Build Status](https://anthavio.ci.cloudbees.com/buildStatus/icon?job=phanbedder)](https://anthavio.ci.cloudbees.com/job/phanbedder/)
+[![Build Status](https://anthavio.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://anthavio.ci.cloudbees.com/job/phanbedder-snapshot/)
 
 PhantomJS Windows/Mac OS X/Linux native binary embedder
 
