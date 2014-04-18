@@ -50,14 +50,17 @@ public class PhanbedderTest {
 		DesiredCapabilities dcaps = new DesiredCapabilities();
 		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
 		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
+		try {
+			driver.get("https://www.google.com");
+			WebElement query = driver.findElement(By.name("q"));
+			query.sendKeys("Phanbedder");
+			query.submit();
 
-		driver.get("https://www.google.com");
-		WebElement query = driver.findElement(By.name("q"));
-		query.sendKeys("Phanbedder");
-		query.submit();
+			Assertions.assertThat(driver.getTitle()).contains("Phanbedder");
+		} finally {
+			driver.quit();
+		}
 
-		Assertions.assertThat(driver.getTitle()).contains("Phanbedder - Google Search");
-		driver.close();
 	}
 
 	private void assertProcessExecution(File binary) throws IOException {
