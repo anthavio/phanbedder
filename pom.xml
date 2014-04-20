@@ -17,6 +17,14 @@
 	
 	<inceptionYear>2014</inceptionYear>
 	<description>PhantomJS Windows/Mac OS X/Linux native binary embedder</description>
+	
+	<licenses>
+		<license>
+			<name>The New BSD License</name>
+			<url>http://www.opensource.org/licenses/bsd-license.html</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
 
 	<url>http://anthavio.github.com/phanbedder</url>
 	
