@@ -10,7 +10,7 @@
 	
 	<groupId>net.anthavio</groupId>
 	<artifactId>phanbedder</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>PhantomJS Embedder</name>
@@ -32,7 +32,7 @@
 		<url>https://github.com/anthavio/phanbedder</url>
 		<connection>scm:git:git://github.com/anthavio/phanbedder.git</connection>
 		<developerConnection>scm:git:git@github.com:anthavio/phanbedder.git</developerConnection>
-	  <tag>v1.0.0</tag>
+	  <tag>HEAD</tag>
   </scm>
 	
 	<properties>
