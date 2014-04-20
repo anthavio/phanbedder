@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>net.anthavio.maven</groupId>
 		<artifactId>anthavio-super-pom</artifactId>
-		<version>1</version>
+		<version>2-SNAPSHOT</version>
 	</parent>
 	
 	<groupId>net.anthavio</groupId>
@@ -93,42 +93,16 @@
 	</dependencies>
 
 	<build>
-
 		<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-jar-plugin</artifactId>
-					<configuration>
-						<classifier>phantomjs-${phantomjs.version}</classifier>
-						<archive>
-							<manifest>
-								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
-							</manifest>
-							<manifestEntries>
-								<PhantomJs-Version>${phantomjs.version}</PhantomJs-Version>
-								
-								<!-- buildmetadata-maven-plugin -->
-								<Built-Host>${build.host.name}</Built-Host>
-								<Built-OS>${build.os.name} / ${build.os.arch} / ${build.os.version}</Built-OS>
-								<Built-By>${build.user}</Built-By>
-								<Java-Vendor>${build.java.vendor}</Java-Vendor>
-								<Java-Version>${build.java.runtime.version}</Java-Version>
-								<Java-Options>${build.maven.execution.java.opts}</Java-Options>
-								<Maven-Version>${build.maven.version}</Maven-Version>
-								<Maven-Options>${build.maven.execution.opts}</Maven-Options>
 
-								<Build-SCM-Revision-Number>${build.scmRevision.id}</Build-SCM-Revision-Number>
-								<Build-SCM-Revision-Date>${build.scmRevision.date}</Build-SCM-Revision-Date>
-								
-								<Build-Timestamp>${build.timestamp.millis}</Build-Timestamp>
-								<Build-Date>${build.date}</Build-Date>
-								<Build-Full-Version>${build.version.full}</Build-Full-Version>
-								
-							</manifestEntries>
-						</archive>
-					</configuration>
-				</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<classifier>phantomjs-${phantomjs.version}</classifier>
+				</configuration>
+			</plugin>	
+			
 		</plugins>
 	</build>
 
