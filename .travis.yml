@@ -1,0 +1,12 @@
+language: java
+
+jdk:
+  - openjdk6
+  - oraclejdk7
+  - oraclejdk8
+
+script: "mvn package"
+
+notifications:
+  # See http://about.travis-ci.org/docs/user/build-configuration/ to learn more
+  email: false
