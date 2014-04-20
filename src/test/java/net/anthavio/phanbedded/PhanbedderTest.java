@@ -24,7 +24,26 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 public class PhanbedderTest {
 
 	@Test
-	public void testJavaIoTmpDirectory() throws IOException {
+	public void testSeleniumGhostDriver() {
+
+		File phantomjs = Phanbedder.unpack();
+		DesiredCapabilities dcaps = new DesiredCapabilities();
+		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
+		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
+		try {
+			driver.get("https://www.google.com");
+			WebElement query = driver.findElement(By.name("q"));
+			query.sendKeys("Phanbedder");
+			query.submit();
+
+			Assertions.assertThat(driver.getTitle()).contains("Phanbedder");
+		} finally {
+			driver.quit();
+		}
+	}
+
+	@Test
+	public void testJavaIoTmpDirectory() throws IOException, InterruptedException {
 		File binary = Phanbedder.unpack();
 
 		String javaIoTmpdir = System.getProperty("java.io.tmpdir");
@@ -40,6 +59,7 @@ public class PhanbedderTest {
 
 		binary.delete(); //purge cached
 		Assertions.assertThat(binary.exists()).isFalse();
+		Thread.sleep(1000); //1 second at least!
 
 		File binary3 = Phanbedder.unpack(); //new file must be unpacked
 		Assertions.assertThat(binary3.lastModified()).isNotEqualTo(lastModified); //DIFF
@@ -47,7 +67,7 @@ public class PhanbedderTest {
 	}
 
 	@Test
-	public void testLocalTargetDirectory() throws IOException {
+	public void testLocalTargetDirectory() throws IOException, InterruptedException {
 		String targetDir = "target/phanbedder-test/unpack";
 		String binaryPath = Phanbedder.unpack(targetDir);
 		File binary = new File(binaryPath);
@@ -65,31 +85,12 @@ public class PhanbedderTest {
 
 		binary.delete(); //purge cached
 		Assertions.assertThat(binary.exists()).isFalse();
+		Thread.sleep(1000); //1 second at least!
 
 		String binaryPath3 = Phanbedder.unpack(targetDir); //new file must be unpacked
 		File binary3 = new File(binaryPath3);
 		Assertions.assertThat(binary3.lastModified()).isNotEqualTo(lastModified); //DIFF
 		assertProcessExecution(binary3);
-	}
-
-	@Test
-	public void testSeleniumGhostDriver() {
-
-		File phantomjs = Phanbedder.unpack();
-		DesiredCapabilities dcaps = new DesiredCapabilities();
-		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
-		PhantomJSDriver driver = new PhantomJSDriver(dcaps);
-		try {
-			driver.get("https://www.google.com");
-			WebElement query = driver.findElement(By.name("q"));
-			query.sendKeys("Phanbedder");
-			query.submit();
-
-			Assertions.assertThat(driver.getTitle()).contains("Phanbedder");
-		} finally {
-			driver.quit();
-		}
-
 	}
 
 	private void assertProcessExecution(File binary) throws IOException {
