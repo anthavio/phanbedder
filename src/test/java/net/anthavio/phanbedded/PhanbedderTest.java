@@ -26,21 +26,50 @@ public class PhanbedderTest {
 	@Test
 	public void testJavaIoTmpDirectory() throws IOException {
 		File binary = Phanbedder.unpack();
-		assertProcessExecution(binary);
 
 		String javaIoTmpdir = System.getProperty("java.io.tmpdir");
-		Assertions.assertThat(binary.getParentFile()).isEqualTo(
-				new File(javaIoTmpdir, "phantomjs-" + Phanbedder.PHANTOMJS_VERSION));
+		File expectedDir = new File(javaIoTmpdir, "phantomjs-" + Phanbedder.PHANTOMJS_VERSION);
+		Assertions.assertThat(binary.getParentFile()).isEqualTo(expectedDir);
+		assertProcessExecution(binary);
+
+		long lastModified = binary.lastModified();
+
+		File binary2 = Phanbedder.unpack(); //existing file is returned
+		Assertions.assertThat(binary2.lastModified()).isEqualTo(lastModified); // SAME
+		assertProcessExecution(binary2);
+
+		binary.delete(); //purge cached
+		Assertions.assertThat(binary.exists()).isFalse();
+
+		File binary3 = Phanbedder.unpack(); //new file must be unpacked
+		Assertions.assertThat(binary3.lastModified()).isNotEqualTo(lastModified); //DIFF
+		assertProcessExecution(binary3);
 	}
 
 	@Test
 	public void testLocalTargetDirectory() throws IOException {
-		String binary = Phanbedder.unpack("target/phanbedder-test/unpack");
-		assertProcessExecution(new File(binary));
+		String targetDir = "target/phanbedder-test/unpack";
+		String binaryPath = Phanbedder.unpack(targetDir);
+		File binary = new File(binaryPath);
 
 		String javaUserDir = System.getProperty("user.dir");
-		Assertions.assertThat(new File(binary).getParentFile()).isEqualTo(
-				new File(javaUserDir, "target/phanbedder-test/unpack"));
+		Assertions.assertThat(binary.getParentFile()).isEqualTo(new File(javaUserDir, targetDir));
+		assertProcessExecution(binary);
+
+		long lastModified = binary.lastModified();
+
+		String binaryPath2 = Phanbedder.unpack(targetDir); //existing file is returned
+		File binary2 = new File(binaryPath2);
+		Assertions.assertThat(binary2.lastModified()).isEqualTo(lastModified); // SAME
+		assertProcessExecution(binary2);
+
+		binary.delete(); //purge cached
+		Assertions.assertThat(binary.exists()).isFalse();
+
+		String binaryPath3 = Phanbedder.unpack(targetDir); //new file must be unpacked
+		File binary3 = new File(binaryPath3);
+		Assertions.assertThat(binary3.lastModified()).isNotEqualTo(lastModified); //DIFF
+		assertProcessExecution(binary3);
 	}
 
 	@Test

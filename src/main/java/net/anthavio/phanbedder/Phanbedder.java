@@ -16,17 +16,34 @@ public class Phanbedder {
 
 	public static final String PHANTOMJS_VERSION = "1.9.7";
 
+	/**
+	 * Unpack bundled phantomjs binary into ${java.io.tmpdir}/phantomjs-${phantomjs.version}/phantomjs
+	 * 
+	 * @return File of the unbundled phantomjs binary
+	 */
 	public static File unpack() {
 		String javaIoTmpdir = System.getProperty("java.io.tmpdir");
 		//multiple versions can coexist
 		return unpack(new File(javaIoTmpdir, "phantomjs-" + PHANTOMJS_VERSION));
 	}
 
+	/**
+	 * Unpack bundled phantomjs binary into specified directory
+	 * 
+	 * @param directory
+	 * @return file path of the unbundled phantomjs binary
+	 */
 	public static String unpack(String directory) {
 		File file = unpack(new File(directory));
 		return file.getAbsolutePath();
 	}
 
+	/**
+	 * Unpack bundled phantomjs binary into specified directory
+	 * 
+	 * @param directory
+	 * @return File of the unbundled phantomjs binary
+	 */
 	public static File unpack(File directory) {
 		if (!directory.exists()) {
 			if (!directory.mkdirs()) {
@@ -68,21 +85,21 @@ public class Phanbedder {
 		}
 
 		return file;
-
 	}
 
 	private static void unpack(String resource, File target) {
+		if (target.exists() && target.isFile() && target.canExecute()) {
+			return; //keep existing
+		}
 		ClassLoader classLoader = Phanbedder.class.getClassLoader(); //same jarfile -> same classloader
-		InputStream ras = classLoader.getResourceAsStream(resource);
-		if (ras == null) {
+		InputStream stream = classLoader.getResourceAsStream(resource);
+		if (stream == null) {
 			throw new IllegalStateException("Resource not found " + resource + " using ClassLoader " + classLoader);
 		}
-		BufferedInputStream input = new BufferedInputStream(ras);
-
+		BufferedInputStream input = new BufferedInputStream(stream);
 		BufferedOutputStream output = null;
 		try {
 			output = new BufferedOutputStream(new FileOutputStream(target));
-
 			while (input.available() > 0) {
 				byte[] buffer = new byte[input.available()];
 				input.read(buffer);
