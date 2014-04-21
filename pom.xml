@@ -9,8 +9,8 @@
 	</parent>
 	
 	<groupId>net.anthavio</groupId>
-	<artifactId>phanbedder</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
+	<artifactId>phanbedder-1.9.7</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
 	<name>PhantomJS Embedder</name>
@@ -34,10 +34,6 @@
 		<developerConnection>scm:git:git@github.com:anthavio/phanbedder.git</developerConnection>
 	  <tag>HEAD</tag>
   </scm>
-	
-	<properties>
-		<phantomjs.version>1.9.7</phantomjs.version>
-	</properties>
 
 	<developers>
 		
@@ -92,19 +88,5 @@
 		</dependency>
 
 	</dependencies>
-
-	<build>
-		<plugins>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-jar-plugin</artifactId>
-				<configuration>
-					<classifier>phantomjs-${phantomjs.version}</classifier>
-				</configuration>
-			</plugin>	
-			
-		</plugins>
-	</build>
 
 </project>
