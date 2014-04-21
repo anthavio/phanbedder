@@ -5,10 +5,11 @@ Phanbedder
 
 PhantomJS Windows/Mac OS X/Linux native binary embedder
 
-Selenium 2 has annoying habit of wanting full path to browser binary. For headless browsers that does not need installation and can be placed anywhere, this is simply unacceptable and action is unevitable.
+Tired of `java.lang.IllegalStateException: The path to the driver executable must be set by the phantomjs.binary.path capability/system property/PATH variable; for more information, see https://github.com/ariya/phantomjs/wiki. The latest version can be downloaded from http://phantomjs.org/download.html` ?!?
 
-Another obstacle is usualy different Operating System on developer machine (MacOS, Windows) and continuous integration server (Linux). Because PhantomJS is native library therefore every OS needs particular executable binary.
+This library bundles PhantomJS binaries and unpacks right one for you on any of supported platforms - Linux, Windows and Mac OSX.
 
+Simple as this...
 ```java
 //Phanbedder to the rescue!
 		File phantomjs = Phanbedder.unpack();
@@ -25,7 +26,7 @@ Another obstacle is usualy different Operating System on developer machine (MacO
 		driver.close();
 ```
 
-Maven pom.xml dependencies
+Maven pom.xml dependencies. phanbedder-1.9.7 means that PhantomJS is bundeled inside
 
 ```xml
     <dependency>
@@ -39,19 +40,4 @@ Maven pom.xml dependencies
       <artifactId>phantomjsdriver</artifactId>
       <version>1.1.0</version>
     </dependency>
-```
-
-Maven pom.xml repository
-
-```xml
-    <repository>
-        <id>sonatype-oss-public</id>
-        <url>https://oss.sonatype.org/content/groups/public/</url>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
 ```
