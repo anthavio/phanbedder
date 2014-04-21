@@ -30,9 +30,8 @@ Maven pom.xml dependencies
 ```xml
     <dependency>
       <groupId>net.anthavio</groupId>
-      <artifactId>phanbedder</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <classifier>phantomjs-1.9.7</classifier>
+      <artifactId>phanbedder-1.9.7</artifactId>
+      <version>1.0.0</version>
     </dependency>
     
     <dependency>
