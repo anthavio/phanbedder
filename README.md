@@ -8,7 +8,7 @@ Tired of `java.lang.IllegalStateException: The path to the driver executable mus
 
 This library bundles [PhantomJS](http://phantomjs.org/) binaries and unpacks right one for you on any of supported platforms - Linux, Windows and Mac OSX.
 
-Simply use with [Ghost Driver](https://github.com/detro/ghostdriver)
+Simply with [Ghost Driver](https://github.com/detro/ghostdriver) example
 ```java
 //Phanbedder to the rescue!
 		File phantomjs = Phanbedder.unpack();
