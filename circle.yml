@@ -1,0 +1,7 @@
+machine:
+  maven:
+    version: 3.0.5
+
+test:
+  override:
+    - mvn clean deploy -Denforcer.skip=true
