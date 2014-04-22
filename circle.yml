@@ -4,4 +4,4 @@ machine:
 
 test:
   override:
-    - mvn clean deploy -Denforcer.skip=true
+    - mvn clean package -Denforcer.skip=true
