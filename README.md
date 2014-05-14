@@ -1,6 +1,8 @@
-Phanbedder [![Build Status](https://anthavio.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://anthavio.ci.cloudbees.com/job/phanbedder-snapshot/)
+Phanbedder ![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png)
 ==========
- ![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png)
+[![Build Status](https://anthavio.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://anthavio.ci.cloudbees.com/job/phanbedder-snapshot/)
+[![Coverage Status](https://coveralls.io/repos/anthavio/phanbedder/badge.png?branch=master)](https://coveralls.io/r/anthavio/phanbedder?branch=master)
+
 
 PhantomJS Windows/Linux/MacOSX native binary embedder
 
