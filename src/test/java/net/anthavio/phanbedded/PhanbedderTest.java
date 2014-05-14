@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 
 import net.anthavio.phanbedder.Phanbedder;
 
-import org.fest.assertions.api.Assertions;
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
