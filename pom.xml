@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>net.anthavio.maven</groupId>
 		<artifactId>anthavio-super-pom</artifactId>
-		<version>3-SNAPSHOT</version>
+		<version>3</version>
 		<relativePath/>
 	</parent>
 	
@@ -36,6 +36,10 @@
     <tag>HEAD</tag>
   </scm>
 
+	<properties>
+		<project.build.java.target>1.6</project.build.java.target>
+	</properties>
+	
 	<developers>
 		
 		<developer>
@@ -68,16 +72,16 @@
 		</dependency>
 				
 		<dependency>
-			<groupId>org.testng</groupId>
-			<artifactId>testng</artifactId>
-			<version>6.8.7</version>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>org.assertj</groupId>
 			<artifactId>assertj-core</artifactId>
-			<version>1.6.0</version>
+			<version>1.6.1</version>
 			<scope>test</scope>
 		</dependency>
 		
