@@ -1,4 +1,4 @@
-Phanbedder ![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png)
+Phanbedder [![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/Button-Powered-by-CB.png)](http://www.cloudbees.com/)
 ==========
 [![Build Status](https://vanek.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://vanek.ci.cloudbees.com/job/phanbedder-snapshot/)
 [![Coverage Status](https://coveralls.io/repos/anthavio/phanbedder/badge.png?branch=master)](https://coveralls.io/r/anthavio/phanbedder?branch=master)
