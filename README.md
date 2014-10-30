@@ -2,6 +2,7 @@ Phanbedder [![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/
 ==========
 [![Build Status](https://vanek.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://vanek.ci.cloudbees.com/job/phanbedder-snapshot/)
 [![Coverage Status](https://coveralls.io/repos/anthavio/phanbedder/badge.png?branch=master)](https://coveralls.io/r/anthavio/phanbedder?branch=master)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.7/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.7)
 
 
 PhantomJS Windows/Linux/MacOSX native binary embedder
