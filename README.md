@@ -2,7 +2,7 @@ Phanbedder [![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/
 ==========
 [![Build Status](https://vanek.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://vanek.ci.cloudbees.com/job/phanbedder-snapshot/)
 [![Coverage Status](https://coveralls.io/repos/anthavio/phanbedder/badge.png?branch=master)](https://coveralls.io/r/anthavio/phanbedder?branch=master)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.7/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.7)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.8/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.8)
 
 
 PhantomJS Windows/Linux/MacOSX native binary embedder
@@ -11,9 +11,9 @@ Tired of `java.lang.IllegalStateException: The path to the driver executable mus
 
 This library bundles [PhantomJS](http://phantomjs.org/) binaries and unpacks right one for you on any of supported platforms - Linux, Windows and Mac OSX.
 
-Simply with [Ghost Driver](https://github.com/detro/ghostdriver) example
+Simply with [Ghost Driver](https://github.com/detro/ghostdriver)
 ```java
-//Phanbedder to the rescue!
+		//Phanbedder to the rescue!
 		File phantomjs = Phanbedder.unpack();
 		DesiredCapabilities dcaps = new DesiredCapabilities();
 		dcaps.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, phantomjs.getAbsolutePath());
@@ -28,12 +28,12 @@ Simply with [Ghost Driver](https://github.com/detro/ghostdriver) example
 		driver.quit();
 ```
 
-Add maven dependency or [download jar](http://search.maven.org/#artifactdetails|net.anthavio|phanbedder-1.9.7|1.0.0|jar). Number 1.9.7 stands for PhantomJS version bundeled inside.
+Add maven dependency or [download jar](http://search.maven.org/#artifactdetails|net.anthavio|phanbedder-1.9.8|1.0.0|jar). Number 1.9.8 stands for PhantomJS version bundled inside.
 
 ```xml
     <dependency>
       <groupId>net.anthavio</groupId>
-      <artifactId>phanbedder-1.9.7</artifactId>
+      <artifactId>phanbedder-1.9.8</artifactId>
       <version>1.0.0</version>
     </dependency>
     
