@@ -42,7 +42,7 @@ import java.io.InputStream;
  */
 public class Phanbedder {
 
-    public static final String PHANTOMJS_VERSION = "1.9.8";
+    public static final String PHANTOMJS_VERSION = "2.0.0";
 
     /**
      * Unpack bundled phantomjs binary into ${java.io.tmpdir}/phantomjs-${phantomjs.version}/phantomjs
