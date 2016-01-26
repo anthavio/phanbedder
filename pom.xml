@@ -10,7 +10,7 @@
 	</parent>
 	
 	<groupId>net.anthavio</groupId>
-	<artifactId>phanbedder-2.0.0</artifactId>
+	<artifactId>phanbedder-2.1.1</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	
