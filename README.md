@@ -5,10 +5,8 @@ Phanbedder [![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/
 
 Jenkins [![Jenkins Build Status](https://vanek.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://vanek.ci.cloudbees.com/job/phanbedder-snapshot/)
 Drone CI [![Drone CI Status](https://drone.io/github.com/anthavio/phanbedder/status.png)](https://drone.io/github.com/anthavio/phanbedder/latest)
-Circle CI [![Circle CI Status](https://circleci.com/gh/anthavio/phanbedder.png?style=badge)](https://circleci.com/gh/anthavio/phanbedder)
 Codeship [![Codeship Status](https://www.codeship.io/projects/073e30d0-ac64-0131-647d-5a52ac2c4589/status)](https://codeship.com/projects/19461)
 Travis CI [![Build Status](https://travis-ci.org/anthavio/phanbedder.svg)](https://travis-ci.org/anthavio/phanbedder)
-
 
 PhantomJS Windows/Linux/MacOSX native binary embedder
 
