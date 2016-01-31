@@ -2,7 +2,7 @@ Phanbedder [![Cloudbees DEV@cloud](http://www.cloudbees.com/sites/default/files/
 ==========
 [![Build Status](https://vanek.ci.cloudbees.com/buildStatus/icon?job=phanbedder-snapshot)](https://vanek.ci.cloudbees.com/job/phanbedder-snapshot/)
 [![Coverage Status](https://coveralls.io/repos/anthavio/phanbedder/badge.png?branch=master)](https://coveralls.io/r/anthavio/phanbedder?branch=master)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.8/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-1.9.8)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-2.1.1/badge.svg)](https://maven-badges.herokuapp.com/maven-central/net.anthavio/phanbedder-2.1.1)
 
 
 PhantomJS Windows/Linux/MacOSX native binary embedder
@@ -28,8 +28,22 @@ Simply with [Ghost Driver](https://github.com/detro/ghostdriver)
 		driver.quit();
 ```
 
-Add maven dependency or [download jar](http://search.maven.org/#artifactdetails|net.anthavio|phanbedder-1.9.8|1.0.0|jar). Number 1.9.8 stands for PhantomJS version bundled inside.
+Add maven dependency or [download jar](http://search.maven.org/#artifactdetails|net.anthavio|phanbedder-2.1.1|1.0.0|jar). Number 2.1.1 stands for PhantomJS version bundled inside.
 
+```xml
+    <dependency>
+      <groupId>net.anthavio</groupId>
+      <artifactId>phanbedder-2.1.1</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.github.detro.ghostdriver</groupId>
+      <artifactId>phantomjsdriver</artifactId>
+      <version>1.1.0</version>
+    </dependency>
+```
+Previous stable version is 1.9.8
 ```xml
     <dependency>
       <groupId>net.anthavio</groupId>
