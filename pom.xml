@@ -19,6 +19,16 @@
 	<inceptionYear>2014</inceptionYear>
 	<description>PhantomJS Windows/Mac OS X/Linux native binary embedder</description>
 
+	<properties>
+		<project.build.java.target>1.8</project.build.java.target>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+	</repositories>
 	<licenses>
 		<license>
 			<name>The New BSD License</name>
@@ -35,10 +45,6 @@
 		<developerConnection>scm:git:git@github.com:anthavio/phanbedder.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-
-	<properties>
-		<project.build.java.target>1.6</project.build.java.target>
-	</properties>
 	
 	<developers>
 		
@@ -86,9 +92,9 @@
 		</dependency>
 		
 		<dependency>
-			<groupId>com.github.detro.ghostdriver</groupId>
-			<artifactId>phantomjsdriver</artifactId>
-			<version>1.1.0</version>
+			<groupId>com.github.detro</groupId>
+			<artifactId>ghostdriver</artifactId>
+			<version>2.1.0</version>
 			<scope>test</scope>
 		</dependency>
 
